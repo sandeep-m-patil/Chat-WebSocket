@@ -54,7 +54,8 @@ function addMessageToUI(isOwnMessage, data) {
 }
 
 function scrollToBottom() {
-  messageContainer.scrollTo(0, messageContainer.scrollHeight)
+  messageContainer.scrollTop = messageContainer.scrollHeight;
+  
 }
 
 messageInput.addEventListener('focus', (e) => {
