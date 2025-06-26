@@ -37,4 +37,15 @@ function onConnected(socket) {
         //console.log('Feedback received:', data);
         socket.broadcast.emit('feedback', data);
     })
+
+     socket.on('join-room', (roomId) => {
+    socket.join(roomId);
+  });
+
+  socket.on('message', (data) => {
+    // data should include roomId
+    io.to(data.roomId).emit('message', data);
+  });
+
 }
+
